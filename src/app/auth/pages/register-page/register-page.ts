@@ -23,7 +23,11 @@ export class RegisterPage {
   myForm = this.fb.group(
     {
       name: ['', [Validators.required, Validators.pattern(FormUtils.namePattern)]],
-      email: ['', [Validators.required, Validators.pattern(FormUtils.emailPattern)]],
+      email: [
+        '',
+        [Validators.required, Validators.pattern(FormUtils.emailPattern)],
+        [FormUtils.checkingServerResponse],
+      ],
       username: [
         '',
         [
